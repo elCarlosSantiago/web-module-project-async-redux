@@ -1,10 +1,20 @@
+import { useDispatch } from 'react-redux';
+import { deleteChar } from '../actions';
+
 const CharCard = ({ charData, isLoading, error, saved }) => {
   const { born, died, name, playedBy, aliases } = charData;
+  const dispatch = useDispatch();
+
+  const handleDelete = () => {
+    dispatch(deleteChar(charData));
+  };
 
   return (
     <div className="card-wrapper">
-      {isLoading && <p>Generating</p>}
-      {error && <p>{error}</p>}
+      <>
+        {isLoading && <p>Generating</p>}
+        {error && <p>{error}</p>}
+      </>
       <div className="card">
         <h3>Name: {name}</h3>
         {aliases && aliases[0] !== '' ? <h4>Aliases:</h4> : null}
@@ -21,7 +31,11 @@ const CharCard = ({ charData, isLoading, error, saved }) => {
             ? playedBy.map((actor) => <li key={actor}>{actor}</li>)
             : null}
         </ul>
-        {saved && <button className="deleteBtn">Destroy</button>}
+        {saved && (
+          <button className="deleteBtn" onClick={handleDelete}>
+            Destroy
+          </button>
+        )}
       </div>
     </div>
   );

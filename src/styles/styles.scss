@@ -51,6 +51,7 @@ header {
   padding: 3% 0;
   .card-wrapper {
     display: flex;
+    flex-flow: column nowrap;
     justify-content: center;
     text-align: center;
     border: 3px solid black;

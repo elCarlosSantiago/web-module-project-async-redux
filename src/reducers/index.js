@@ -3,6 +3,9 @@ import {
   FETCH_CHAR_SUCCESS,
   FETCH_CHAR_FAILURE,
   SAVE_CHAR,
+  DELETE_CHAR_FAIL,
+  DELETE_CHAR,
+  SAVE_CHAR_FAIL,
 } from '../actions';
 
 const initialState = {
@@ -37,6 +40,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         savedChars: [...state.savedChars, action.payload],
+      };
+    case SAVE_CHAR_FAIL:
+      return {
+        ...state,
+        error: 'Character already exists',
+      };
+    case DELETE_CHAR:
+      return {
+        ...state,
+        savedChars: state.savedChars.filter((char) => char !== action.payload),
       };
     default:
       return state;

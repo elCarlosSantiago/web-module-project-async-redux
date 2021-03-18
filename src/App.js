@@ -3,7 +3,7 @@ import Header from './components/Header';
 import './styles/styles.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCharacter, saveChar } from './actions';
+import { getCharacter, saveChar, SaveCharFail } from './actions';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,6 +17,8 @@ const App = () => {
   const handleSave = () => {
     if (!savedChars.includes(charData)) {
       dispatch(saveChar(charData));
+    } else {
+      dispatch(SaveCharFail());
     }
   };
   return (
