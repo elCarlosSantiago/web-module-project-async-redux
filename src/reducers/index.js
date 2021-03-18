@@ -2,12 +2,14 @@ import {
   FETCH_CHAR_LOADING,
   FETCH_CHAR_SUCCESS,
   FETCH_CHAR_FAILURE,
+  SAVE_CHAR,
 } from '../actions';
 
 const initialState = {
   charData: {},
   isLoading: false,
   error: '',
+  savedChars: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +32,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload,
+      };
+    case SAVE_CHAR:
+      return {
+        ...state,
+        savedChars: [...state.savedChars, action.payload],
       };
     default:
       return state;

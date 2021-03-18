@@ -1,22 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCharacter } from '../actions';
-
-const CharCard = () => {
-  const dispatch = useDispatch();
-  const { charData, isLoading, error } = useSelector((state) => state);
+const CharCard = ({ charData, isLoading, error, saved }) => {
   const { born, died, name, playedBy, aliases } = charData;
 
-  useEffect(() => {
-    dispatch(getCharacter());
-  }, [dispatch]);
-
-  console.log('aliases', aliases);
-  console.log('playedBy', playedBy);
   return (
     <div className="card-wrapper">
-      {isLoading && <h1>Generating</h1>}
+      {isLoading && <p>Generating</p>}
       {error && <p>{error}</p>}
       <div className="card">
         <h3>Name: {name}</h3>
@@ -34,7 +21,7 @@ const CharCard = () => {
             ? playedBy.map((actor) => <li key={actor}>{actor}</li>)
             : null}
         </ul>
-        <button onClick={() => dispatch(getCharacter())}>Randomize</button>
+        {saved && <button className="deleteBtn">Destroy</button>}
       </div>
     </div>
   );
