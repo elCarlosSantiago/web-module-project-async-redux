@@ -1,9 +1,14 @@
+import CharCard from './components/CharCard';
+import Header from './components/Header';
 import './styles/styles.css';
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Hello From App</h1>
+      <Header />
+      <div className="char-wrapper">
+        <CharCard />
+      </div>
     </div>
   );
 };

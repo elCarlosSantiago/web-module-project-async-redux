@@ -1,3 +1,51 @@
-h1 {
-  color: gold;
+$bsr: 1px solid red;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'cinzel';
+}
+body {
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.wallpapersin4k.org%2Fwp-content%2Fuploads%2F2017%2F04%2FGame-Of-Thrones-The-Wall-Wallpaper-8.jpg&f=1&nofb=1);
+  background-repeat: no-repeat;
+}
+
+header {
+  border-bottom: 4px solid #292f32;
+  box-shadow: 4px 4px 1px #eef3f6;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding: 1% 0;
+}
+
+.char-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+  padding: 3% 0;
+  .card-wrapper {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid black;
+    border-radius: 30px;
+    box-shadow: 2px 2px 1px whitesmoke;
+    background: rgba(173, 216, 230, 0.461);
+    padding: 2% 2%;
+  }
+  li {
+    list-style: none;
+  }
+  h5 {
+    margin-top: 2%;
+  }
+
+  button {
+    padding: 2px 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    outline: none;
+  }
 }
